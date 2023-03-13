@@ -1,0 +1,33 @@
+:root {
+  --color-background: #F0EDF5;
+
+  --color-black: #191A23;
+  --color-white: #FFFFFF;
+
+  --color-lightGray: #D0D0D2;
+  --color-darkGray: #949A9D;
+
+  --color-lightBlue: #02F2F8;
+  --color-darkBlue: #083099;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: 'Tilt Neon', cursive;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  color: var(--color-black);
+  background: var(--color-background);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

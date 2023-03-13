@@ -1,0 +1,47 @@
+{
+  "Me": {
+    "ID": 11,
+    "Groups": [
+      {
+        "ID": 1
+      },
+      {
+        "ID": 2
+      }
+    ],
+    "Friends": [
+      {
+        "ID": 1,
+        "Status": "accepted"
+      },
+      {
+        "ID": 3,
+        "Status": "accepted"
+      },
+      {
+        "ID": 21,
+        "Status": "unaccepted"
+      },
+      {
+        "ID": 24,
+        "Status": "accepted"
+      },
+      {
+        "ID": 28,
+        "Status": "accepted"
+      },
+      {
+        "ID": 30,
+        "Status": "accepted"
+      },
+      {
+        "ID": 31,
+        "Status": "accepted"
+      },
+      {
+        "ID": 38,
+        "Status": "accepted"
+      }
+    ]
+  }
+}

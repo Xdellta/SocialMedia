@@ -1,0 +1,29 @@
+{
+  "Groups": [
+    {
+      "ID": "1",
+      "Name": "JavaScript Developers",
+      "Image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTab05l3ndGtZqyqxgTeOkmB7g2eDGyYrQp60gRu108tIEXOLQTl8tf9Jpx90UiNJEIv1Q&usqp=CAU"
+    },
+    {
+      "ID": "2",
+      "Name": "Python Developers",
+      "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+    },
+    {
+      "ID": "3",
+      "Name": "Java Developers",
+      "Image": "https://qa-courses.com/wp-content/uploads/2017/08/java-logo-png-300x300.png"
+    },
+    {
+      "ID": "4",
+      "Name": "Ruby Developers",
+      "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/2048px-Ruby_logo.svg.png"
+    },
+    {
+      "ID": "5",
+      "Name": "PHP Developers",
+      "Image": "https://www.php.net/images/meta-image.png"
+    }
+  ]
+}
