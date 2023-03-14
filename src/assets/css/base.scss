@@ -1,14 +1,25 @@
 :root {
-  --color-background: #F0EDF5;
+  --color-background1: #F0EDF5;
+  --color-background2: #FFFFFF;
 
-  --color-black: #191A23;
-  --color-white: #FFFFFF;
+  --color-contrast: #191A23;
 
   --color-lightGray: #D0D0D2;
   --color-darkGray: #949A9D;
 
   --color-lightBlue: #02F2F8;
   --color-darkBlue: #083099;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background1: #18191A;
+    --color-background2: #242526;
+
+    --color-contrast: white;
+
+    --color-darkBlue: #144ddd;
+  }
 }
 
 *,
@@ -25,7 +36,7 @@ body {
   width: 100vw;
   height: 100vh;
   color: var(--color-black);
-  background: var(--color-background);
+  background: var(--color-background1);
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

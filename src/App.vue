@@ -27,7 +27,7 @@ import AsideMenu from './components/AsideMenu.vue'
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: var(--color-white);
+    background-color: var(--color-background2);
     padding: 35px 30px 0 30px;
   }
 </style>

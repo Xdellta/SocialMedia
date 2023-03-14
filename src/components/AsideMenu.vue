@@ -1,5 +1,6 @@
 <script>
   import IconSearch from './icons/IconSearch.vue'
+  import IconDownArrow from './icons/IconDownArrow.vue'
 
   import dataGroups from '../assets/data/data-groups.json'
   import dataMe from '../assets/data/data-me.json'
@@ -7,7 +8,8 @@
 
   export default {
     components: {
-      IconSearch
+      IconSearch,
+      IconDownArrow
     },
 
     name: 'MyComponent',
@@ -56,10 +58,6 @@
         this.showMoreFriends = !this.showMoreFriends
       },
 
-      toggleShowMoreFriends() {
-        this.showMoreFriends = !this.showMoreFriends
-      },
-
       filterData(event) {
         const keyword = event.target.value.toLowerCase().trim()
 
@@ -76,8 +74,8 @@
 </script>
 
 <template>
-  <div class="form">
-    <button id="Search-btn"><IconSearch class="IconSearch" /></button>
+  <div class="SearchBox">
+    <div class="box-IconSearch"><IconSearch class="IconSearch" /></div>
     <input type="text" placeholder="Wyszukaj" class="SearchInput" v-on:input="filterData">
   </div>
 
@@ -86,21 +84,22 @@
       <h1 class="title">TWOJE GRUPY:</h1>
 
       <div class="groups__item" v-for="group in myGroups.slice(0, showMoreGroups ? myGroups.length : 6)" :key="group.ID">
-        <img :src="group.Image" :alt="group.Name" class="item-img">
+        <img :src="group.Image" :alt="group.Name" class="item-img" loading="lazy">
         {{ group.Name }}
       </div>
 
-      <span class="collapse-expand" v-show="myGroups.length > 6" @click="toggleShowMoreGroups">
+      <button class="collapse-expand" v-show="myGroups.length > 6" @click="toggleShowMoreGroups">
         {{ showMoreGroups ? 'POKAŻ MNIEJ' : 'POKAŻ WIĘCEJ' }}
-      </span>
+        <IconDownArrow :class="showMoreGroups ? 'up-arrow' : 'down-arrow'" />
+      </button>
     </div>
 
     <div id="friends">
-      <H1 class="title">ZNAJOMI:</H1>
+      <h1 class="title">ZNAJOMI:</h1>
 
       <div class="friends__item" v-for="friend in myFriends.slice(0, showMoreFriends ? myFriends.length : 6)" :key="friend.ID">
         <div class="item__personalData">
-          <img :src="friend.Avatar" :alt="friend.FirstName + ' ' + friend.FirstName" class="item-img">
+          <img :src="friend.Avatar" :alt="friend.FirstName + ' ' + friend.FirstName" class="item-img" loading="lazy">
           {{ friend.FirstName }} {{ friend.LastName }}
         </div>
 
@@ -109,16 +108,17 @@
         </div>
       </div>
 
-      <span class="collapse-expand" v-show="myFriends.length > 6" @click="toggleShowMoreFriends">
+      <button class="collapse-expand" v-show="myFriends.length > 6" @click="toggleShowMoreFriends">
         {{ showMoreFriends ? 'POKAŻ MNIEJ' : 'POKAŻ WIĘCEJ' }}
-      </span>
+        <IconDownArrow :class="showMoreFriends ? 'up-arrow' : 'down-arrow'" />
+      </button>
     </div>
   </div>
 </template>
 
 <style type="scss" scoped>
-  /* form */
-  .form {
+  /* search */
+  .SearchBox {
     height: 47px;
     width: 100%;
     display: flex;
@@ -139,7 +139,7 @@
     fill: var(--color-lightBlue);
   }
 
-  #Search-btn {
+  .box-IconSearch {
     height: 100%;
     width: 47px;
     display: flex;
@@ -152,7 +152,7 @@
   }
 
   .IconSearch {
-    fill: var(--color-white);
+    fill: #FFFFFF;
   }
 
   .SearchInput {
@@ -162,8 +162,8 @@
     border-radius: 0 12px 12px 0;
     border: none;
     outline: none;
-    background-color: var(--color-background);
-    color: var(--color-black);
+    background-color: var(--color-background1);
+    color: var(--color-contrast);
     font-size: 16px;
   }
 
@@ -207,6 +207,7 @@
     display: flex;
     align-items: center;
     margin: 6px 0;
+    color: var(--color-contrast);
   }
 
   .friends__item {
@@ -216,6 +217,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 9px 0;
+    color: var(--color-contrast);
   }
 
   .groups__item:hover, .friends__item:hover {
@@ -232,7 +234,7 @@
     height: 33px;
     width: 33px;
     border-radius: 50%;
-    background-color: var(--color-background);
+    background-color: var(--color-background1);
     margin-right: 15px;
     object-fit: cover;
   }
@@ -252,12 +254,29 @@
   .collapse-expand {
     width: max-content;
     color: var(--color-darkGray);
+    background-color: #00000000;
+    outline: none;
+    border: none;
     font-size: 15px;
     margin: 15px auto 0 auto;
+    display: flex;
+    align-items: center;
   }
 
   .collapse-expand:hover {
     cursor: pointer;
     color: var(--color-darkBlue);
+  }
+
+  .down-arrow {
+    fill: var(--color-darkGray);
+    transition: 0.2s;
+    transform: rotate(0);
+  }
+
+  .up-arrow {
+    fill: var(--color-darkGray);
+    transition: 0.2s;
+    transform: rotate(180deg);
   }
 </style>
