@@ -265,7 +265,7 @@
 
   .collapse-expand:hover {
     cursor: pointer;
-    color: var(--color-darkBlue);
+    color: var(--color-lightBlue);
   }
 
   .down-arrow {
