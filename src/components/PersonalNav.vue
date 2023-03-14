@@ -22,7 +22,7 @@
     </div>
 
     <router-link to="/" class="avatar" >
-      <img :src="user.Avatar" />
+      <img :src="user.Avatar" :alt="user.FirstName + ' ' + user.LastName" />
     </router-link>
   </div>
 </template>
