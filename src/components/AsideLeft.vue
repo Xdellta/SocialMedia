@@ -12,7 +12,6 @@
       IconDownArrow
     },
 
-    name: 'MyComponent',
     data() {
       return {
         myGroups: [],

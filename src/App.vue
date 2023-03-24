@@ -2,7 +2,7 @@
   import { RouterLink, RouterView } from 'vue-router'
   import AsideLeft from './components/AsideLeft.vue'
   import Navigation from './components/Navigation.vue'
-  import PersonalNav from './components/PersonalNav.vue'
+  import PersonalOverlay from './components/PersonalOverlay.vue'
 </script>
 
 <template>
@@ -14,7 +14,7 @@
     <RouterView />
   </main>
 
-  <PersonalNav />
+  <PersonalOverlay />
   
   <nav>
     <Navigation />
@@ -24,7 +24,8 @@
 <style type="scss" scoped>
   aside {
     height: 100%;
-    width: 350px;
+    min-width: 350px;
+    max-width: 350px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -33,22 +34,22 @@
   }
 
   main {
+    width: 1200px;
     height: 100%;
-    width: max-content;
     display: flex;
     flex-direction: column;
     padding-top: 17px;
+    overflow-y: auto;
+  }
+
+  main::-webkit-scrollbar {
+    display: none;
   }
 
   nav {
-    width: 54px;
-    height: 370px;
-    margin: auto 11px auto 0;
+    width: 77px;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: var(--color-background2);
-    border-radius: 15px;
+
   }
 </style>
