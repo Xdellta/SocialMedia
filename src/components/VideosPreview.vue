@@ -27,6 +27,7 @@
   .PopularVideos__title {
     color: var(--color-contrast);
     font-size: 22px;
+    margin-bottom: 20px;
   }
 
   .PopularVideos__videos {

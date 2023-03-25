@@ -4,11 +4,21 @@
 
   import EmojiLike from './icons/EmojiLike.vue'
   import EmojiLove from './icons/EmojiLove.vue'
+  import EmojiHaha from './icons/EmojiHaha.vue'
+  import EmojiAngry from './icons/EmojiAngry.vue'
+  import EmojiSad from './icons/EmojiSad.vue'
+  import EmojiWow from './icons/EmojiWow.vue'
+  import EmojiYa from './icons/EmojiYa.vue'
 
   export default {
     components: {
       EmojiLike,
-      EmojiLove
+      EmojiLove,
+      EmojiHaha,
+      EmojiAngry,
+      EmojiSad,
+      EmojiWow,
+      EmojiYa
     },
 
     data() {
@@ -48,8 +58,17 @@
         </div>
 
         <div class="reactions">
-          <EmojiLike class="emoji" />
-          <EmojiLove class="emoji" />
+
+          <div class="reactions__item" v-for="reaction in post.Reactions.filter(r => r.ReactionValue > 0)" :key="reaction.ReactionName">
+            <span class="reactionValue" v-if="reaction.ReactionValue > 0">{{ reaction.ReactionValue }}</span>
+            <EmojiLike class="emoji" v-if="reaction.ReactionName === 'Like'" />
+            <EmojiLove class="emoji" v-if="reaction.ReactionName === 'Love'" />
+            <EmojiHaha class="emoji" v-if="reaction.ReactionName === 'Haha'" />
+            <EmojiAngry class="emoji" v-if="reaction.ReactionName === 'Angry'" />
+            <EmojiSad class="emoji" v-if="reaction.ReactionName === 'Sad'" />
+            <EmojiWow class="emoji" v-if="reaction.ReactionName === 'Wow'" />
+            <EmojiYa class="emoji" v-if="reaction.ReactionName === 'Ya'" />
+          </div>
         </div>
       </div>
 
@@ -82,6 +101,7 @@
     height: max-content;
     padding: 18px;
     margin-top: 35px;
+    margin-bottom: 20px;
     border-radius: 14px;
     background-color: var(--color-background2);
     display: flex;
@@ -106,8 +126,8 @@
 
   .PostAuthor-avatar {
     display: flex;
-    width: 44px;
-    height: 44px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
   }
 
@@ -134,10 +154,15 @@
     align-items: center;
   }
 
+  .reactions__item {
+    display: flex;
+    align-items: center;
+    margin-left: 22px;
+  }
+
   .emoji {
     width: 33px;
     height: max-content;
-    margin-left: 13px;
   }
 
   .emoji:hover {
@@ -145,6 +170,18 @@
     transform: scale(1.025);
     transition: 0.8s;
     transform: rotate(360deg);
+  }
+
+  .reactionValue {
+    height: 21px;
+    margin-right: -5px;
+    padding: 0 9px 0 7px;
+    display: flex;
+    align-items: center;
+    border-radius: 7px 0 0 7px;
+    background-color: var(--color-contrast);
+    color: var(--color-background1);
+    font-size: 20px;
   }
 
   /* main section */
