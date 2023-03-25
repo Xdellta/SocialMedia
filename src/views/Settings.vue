@@ -21,7 +21,7 @@
     width: 100%;
     height: max-content;
     margin-top: 27px;
-    padding: 19px 30px;
+    padding: 20px 30px;
     border-radius: 14px;
     background-color: var(--color-background2);
     display: flex;

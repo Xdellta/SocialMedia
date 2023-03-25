@@ -5,7 +5,16 @@
   export default {
     data() {
       return {
-        postsArray: dataPosts
+        postsArray: dataPosts.Posts,
+        usersArray: dataUsers.Users
+      }
+    },
+
+    computed: {
+      filteredAuthors() {
+        return this.usersArray.filter(user => {
+          return this.postsArray.map(post => post.UserID).includes(user.ID.toString())
+        })
       }
     }
   }
@@ -16,9 +25,24 @@
     <h1 class="posts__title">POPULARNE POSTY</h1>
 
     <div class="posts__item" v-for="post in postsArray" :key="post.ID">
-      <div class="item__header"></div>
+      <div class="item__header">
+        <div class="PostAuthor" v-for="user in filteredAuthors" :key="user.ID">
+          <router-link to="/">
+            <img :src="user.Avatar" :alt="'avatar ' + user.FirstName + ' ' + user.LastName" class="PostAuthor-avatar">
+          </router-link>
 
-      {{ post.Text }}
+          <div class="PostAuthor-text">
+            <router-link to="/" class="PostAuthor-nick">
+              {{ user.FirstName }} {{ user.LastName }}
+            </router-link>
+            <span class="PostAuthor-timeAdded">2 min. temu</span>
+          </div>
+        </div>
+      </div>
+
+      <img :src="post.Media" :alt="'post ' + post.MediaType">
+
+      <p class="PostText">{{ post.Text }}</p>
     </div>
   </div>
 </template>
@@ -43,19 +67,53 @@
     width: 100%;
     min-height: 140px;
     height: max-content;
-    padding: 0 25px;
+    padding: 0 25px 25px 25px;
     margin-top: 35px;
     border-radius: 14px;
     background-color: var(--color-background2);
     display: flex;
+    flex-wrap: wrap;
   }
 
   .item__header {
     width: 100%;
-    height: 55px;
-    padding: 0 30px;
+    height: max-content;
+    padding: 11px 0;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--color-background1);
+  }
+
+  .PostAuthor {
+    display: flex;
+    align-items: center;
+  }
+
+  .PostAuthor-avatar {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+  }
+
+  .PostAuthor-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+  }
+
+  .PostAuthor-nick {
+    color: var(--color-contrast);
+    text-decoration: none;
+    font-size: 19px;
+  }
+
+  .PostAuthor-timeAdded {
+    color: var(--color-lightBlue);
+    font-size: 15px;
+  }
+
+  .PostText {
+    color: var(--color-contrast);
   }
 </style>
