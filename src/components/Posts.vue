@@ -2,7 +2,15 @@
   import dataPosts from '../assets/data/data-posts.json'
   import dataUsers from '../assets/data/data-users.json'
 
+  import EmojiLike from './icons/EmojiLike.vue'
+  import EmojiLove from './icons/EmojiLove.vue'
+
   export default {
+    components: {
+      EmojiLike,
+      EmojiLove
+    },
+
     data() {
       return {
         postsArray: dataPosts.Posts,
@@ -38,6 +46,11 @@
             <span class="PostAuthor-timeAdded">2 min. temu</span>
           </div>
         </div>
+
+        <div class="reactions">
+          <EmojiLike class="emoji" />
+          <EmojiLove class="emoji" />
+        </div>
       </div>
 
       <img :src="post.Media" :alt="'post ' + post.MediaType">
@@ -67,7 +80,7 @@
     width: 100%;
     min-height: 140px;
     height: max-content;
-    padding: 0 25px 25px 25px;
+    padding: 18px;
     margin-top: 35px;
     border-radius: 14px;
     background-color: var(--color-background2);
@@ -75,15 +88,17 @@
     flex-wrap: wrap;
   }
 
+  /* header */
   .item__header {
     width: 100%;
     height: max-content;
-    padding: 11px 0;
     margin-bottom: 25px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 
+  /* header - left section */
   .PostAuthor {
     display: flex;
     align-items: center;
@@ -113,6 +128,26 @@
     font-size: 15px;
   }
 
+  /* header - right section */
+  .reactions {
+    display: flex;
+    align-items: center;
+  }
+
+  .emoji {
+    width: 33px;
+    height: max-content;
+    margin-left: 13px;
+  }
+
+  .emoji:hover {
+    cursor: pointer;
+    transform: scale(1.025);
+    transition: 0.8s;
+    transform: rotate(360deg);
+  }
+
+  /* main section */
   .PostText {
     color: var(--color-contrast);
   }

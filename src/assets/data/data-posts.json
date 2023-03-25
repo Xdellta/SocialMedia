@@ -9,16 +9,32 @@
       "PublicationTime": "2023-03-10 16:00:00",
       "Reactions": [
         {
-          "ReactionName": "Like",
+          "ReactionName": "Angry",
           "ReactionValue": 20
+        },
+        {
+          "ReactionName": "Haha",
+          "ReactionValue": 10
+        },
+        {
+          "ReactionName": "Like",
+          "ReactionValue": 5
         },
         {
           "ReactionName": "Love",
           "ReactionValue": 10
         },
         {
+          "ReactionName": "Sad",
+          "ReactionValue": 10
+        },
+        {
           "ReactionName": "Wow",
-          "ReactionValue": 5
+          "ReactionValue": 10
+        },
+        {
+          "ReactionName": "Ya",
+          "ReactionValue": 10
         }
       ],
       "Comments": [

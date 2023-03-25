@@ -33,12 +33,12 @@
     width: 100%;
     height: 200px;
     display: flex;
+    justify-content: space-between;
   }
 
   .videos__item {
     height: 100%;
     width: 150px;
-    margin-right: 20px;
     border-radius: 14px;
     background-color: var(--color-background2);
   }

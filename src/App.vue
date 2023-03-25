@@ -34,7 +34,7 @@
   }
 
   main {
-    width: 1200px;
+    width: 1040px;
     height: 100%;
     display: flex;
     flex-direction: column;
