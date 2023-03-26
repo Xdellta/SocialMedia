@@ -2,6 +2,8 @@
   import dataPosts from '../assets/data/data-posts.json'
   import dataUsers from '../assets/data/data-users.json'
 
+  import NewPost from './NewPost.vue'
+
   import IconAddEmoji from './icons/IconAddEmoji.vue'
   import EmojiLike from './icons/EmojiLike.vue'
   import EmojiLove from './icons/EmojiLove.vue'
@@ -13,6 +15,7 @@
 
   export default {
     components: {
+      NewPost,
       IconAddEmoji,
       EmojiLike,
       EmojiLove,
@@ -60,6 +63,8 @@
 <template>
   <div class="posts">
     <h1 class="posts__title">POPULARNE POSTY</h1>
+
+    <NewPost />
 
     <div class="posts__item" v-for="post in postsArray" :key="post.ID">
       <div class="item__header">
@@ -232,7 +237,7 @@
 
   .IconAddEmoji {
     position: relative;
-    width: 33px;
+    width: 34px;
     height: max-content;
     fill: #FFDA6A;
     margin-left: 22px;
@@ -241,13 +246,11 @@
 
   .IconAddEmoji:hover {
     cursor: pointer;
-    transition: 0.1s;
-    transform: scale(1.04);
   }
 
   .addEmoji-table {
     position: absolute;
-    top: -2px;
+    top: -3px;
     right: -3px;
     padding: 38px 6px 6px 6px;
     display: none;
