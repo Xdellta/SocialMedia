@@ -10,31 +10,31 @@
       "Reactions": [
         {
           "ReactionName": "Like",
-          "ReactionValue": 1
+          "ReactionValue": 12
         },
         {
           "ReactionName": "Love",
-          "ReactionValue": 10
+          "ReactionValue": 6
         },
         {
           "ReactionName": "Haha",
-          "ReactionValue": 10
+          "ReactionValue": 0
         },
         {
           "ReactionName": "Angry",
-          "ReactionValue": 20
+          "ReactionValue": 1
         },
         {
           "ReactionName": "Sad",
-          "ReactionValue": 10
+          "ReactionValue": 0
         },
         {
           "ReactionName": "Wow",
-          "ReactionValue": 10
+          "ReactionValue": 0
         },
         {
           "ReactionName": "Ya",
-          "ReactionValue": 10
+          "ReactionValue": 0
         }
       ],
       "Comments": [
