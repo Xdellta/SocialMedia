@@ -1,5 +1,5 @@
 # SocialMedia by Patryk Piotrowski
-https://xdellta.github.io/SocialMedia/
+https://socialmedia.websidev.pl/
 
 This template should help get you started developing with Vue 3 in Vite.
 
