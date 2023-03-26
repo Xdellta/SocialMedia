@@ -1,13 +1,17 @@
 {
+  "homepahe": "https://github.com/Xdellta/SocialMedia",
   "name": "socialmedia",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "sass": "^1.58.3",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
