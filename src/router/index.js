@@ -13,7 +13,7 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/Społaczność',
+      path: '/Społeczność',
       name: 'social',
       component: Social
     },
