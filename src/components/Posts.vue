@@ -5,6 +5,7 @@
   import NewPost from './NewPost.vue'
   import Avatar from './postsComponents/Avatar.vue'
   import Nick from './postsComponents/Nick.vue'
+  import PublicationTime from './postsComponents/PublicationTime.vue'
 
   import IconAddEmoji from './icons/IconAddEmoji.vue'
   import EmojiLike from './icons/EmojiLike.vue'
@@ -20,6 +21,7 @@
       NewPost,
       Avatar,
       Nick,
+      PublicationTime,
       IconAddEmoji,
       EmojiLike,
       EmojiLove,
@@ -74,7 +76,7 @@
               <Nick :UserID="post.UserID" />
             </router-link>
 
-            <span class="PostAuthor-timeAdded">2 min. temu</span>
+            <PublicationTime :UserID="post.UserID" />
           </div>
         </div>
 
