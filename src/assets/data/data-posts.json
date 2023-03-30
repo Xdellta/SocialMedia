@@ -87,6 +87,50 @@
             "PublicationTime": "2023-03-10 16:20:00"
         }
       ]
+    },
+    {
+      "ID": "3",
+      "UserID": "7",
+      "Text": "Kolejny dzień na stoku, wreszcie czuję, że żyję ⛷️",
+      "Media": "https://cdn.pixabay.com/photo/2022/04/27/18/35/snowkiting-7161035_960_720.jpg",
+      "PublicationTime": "2023-03-27 14:00:00",
+      "Reactions": [
+        {
+          "ReactionName": "Like",
+          "ReactionValue": 22
+        },
+        {
+          "ReactionName": "Love",
+          "ReactionValue": 31
+        },
+        {
+          "ReactionName": "Haha",
+          "ReactionValue": 0
+        },
+        {
+          "ReactionName": "Angry",
+          "ReactionValue": 0
+        },
+        {
+          "ReactionName": "Sad",
+          "ReactionValue": 0
+        },
+        {
+          "ReactionName": "Wow",
+          "ReactionValue": 8
+        },
+        {
+          "ReactionName": "Ya",
+          "ReactionValue": 0
+        }
+      ],
+      "Comments": [
+        {
+            "UserID": "3",
+            "Comment": "Ble ble ble, zero konstruktywnej wypowiedzi",
+            "PublicationTime": "2023-03-10 16:20:00"
+        }
+      ]
     }
   ]
 }

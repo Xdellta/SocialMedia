@@ -24,7 +24,8 @@
       const now = new Date()
       const timeDiff = Math.round((now - PublicationTime) / (1000 * 60)) // time difference in minutes
 
-      if (timeDiff < 60) this.postPublicationTime[0].PublicationTime = timeDiff + ' min.'
+      if (timeDiff < 1) this.postPublicationTime[0].PublicationTime = 'Teraz'
+      if (timeDiff < 60 && timeDiff >= 1) this.postPublicationTime[0].PublicationTime = timeDiff + ' min.'
       if (timeDiff >= 60) this.postPublicationTime[0].PublicationTime = Math.round(timeDiff / 60) + ' godz.'
       if (timeDiff / 60 >= 24) this.postPublicationTime[0].PublicationTime = Math.round(timeDiff / 60 / 24) + ' dni'
       if (Math.round(timeDiff / 60 / 24) == 1) this.postPublicationTime[0].PublicationTime = '1 dzień'
