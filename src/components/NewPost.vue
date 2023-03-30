@@ -37,7 +37,7 @@
   
   .NewPost-textarea {
     height: 45px;
-    width: 884px;
+    width: 646px;
     padding: 0 24px;
     line-height: 45px;
     border: none;

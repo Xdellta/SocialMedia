@@ -1,10 +1,10 @@
 <script setup>
-  import VideosPreview from '../components/VideosPreview.vue'
+  import ProposedFriends from '../components/ProposedFriends.vue'
   import Posts from '../components/Posts.vue'
 </script>
 
 <template>
-  <VideosPreview />
+  <ProposedFriends />
 
   <Posts />
 </template>

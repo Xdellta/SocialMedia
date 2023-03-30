@@ -38,12 +38,12 @@
           const now = new Date()
           const minutesDiff = Math.round((now - lastActive) / (1000 * 60))
 
-          if (minutesDiff < 60) friend.lastActiveMinutes = minutesDiff + ' min.'
-          if (minutesDiff >= 60) friend.lastActiveMinutes = Math.round(minutesDiff / 60) + ' godz.'
-          if (minutesDiff / 60 >= 24) friend.lastActiveMinutes = Math.round(minutesDiff / 60 / 24) + ' dni'
-          if (Math.round(minutesDiff / 60 / 24) == 1) friend.lastActiveMinutes = '1 dzień'
-          if (minutesDiff / 60 / 24 >= 365) friend.lastActiveMinutes = Math.round(minutesDiff / 60 / 24 / 365) + ' lata'
-          if (Math.round(minutesDiff / 60 / 24 / 365) == 1) friend.lastActiveMinutes = '1 rok'
+          if (minutesDiff < 60) friend.lastActive = minutesDiff + ' min.'
+          if (minutesDiff >= 60) friend.lastActive = Math.round(minutesDiff / 60) + ' godz.'
+          if (minutesDiff / 60 >= 24) friend.lastActive = Math.round(minutesDiff / 60 / 24) + ' dni'
+          if (Math.round(minutesDiff / 60 / 24) == 1) friend.lastActive = '1 dzień'
+          if (minutesDiff / 60 / 24 >= 365) friend.lastActive = Math.round(minutesDiff / 60 / 24 / 365) + ' lata'
+          if (Math.round(minutesDiff / 60 / 24 / 365) == 1) friend.lastActive = '1 rok'
         }
       })
     },
@@ -103,7 +103,7 @@
         </div>
 
         <div class="item__status" :class="{ 'status-active': friend.Status === 'active', 'status-inactive': friend.Status === 'inactive' }">
-          {{ friend.lastActiveMinutes }}
+          {{ friend.lastActive }}
         </div>
       </div>
 

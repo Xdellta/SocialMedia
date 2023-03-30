@@ -3,6 +3,8 @@
   import dataUsers from '../assets/data/data-users.json'
 
   import NewPost from './NewPost.vue'
+  import Avatar from './postsComponents/Avatar.vue'
+  import Nick from './postsComponents/Nick.vue'
 
   import IconAddEmoji from './icons/IconAddEmoji.vue'
   import EmojiLike from './icons/EmojiLike.vue'
@@ -16,6 +18,8 @@
   export default {
     components: {
       NewPost,
+      Avatar,
+      Nick,
       IconAddEmoji,
       EmojiLike,
       EmojiLove,
@@ -31,14 +35,6 @@
         postsArray: dataPosts.Posts,
         usersArray: dataUsers.Users,
         reactionsClicked: {}
-      }
-    },
-
-    computed: {
-      filteredAuthors() {
-        return this.usersArray.filter(user => {
-          return this.postsArray.map(post => post.UserID).includes(user.ID.toString())
-        })
       }
     },
 
@@ -68,15 +64,16 @@
 
     <div class="posts__item" v-for="post in postsArray" :key="post.ID">
       <div class="item__header">
-        <div class="PostAuthor" v-for="user in filteredAuthors" :key="user.ID">
+        <div class="PostAuthor">
           <router-link to="/">
-            <img :src="user.Avatar" :alt="'avatar ' + user.FirstName + ' ' + user.LastName" class="PostAuthor-avatar">
+            <Avatar :UserID="post.UserID" />
           </router-link>
 
           <div class="PostAuthor-text">
             <router-link to="/" class="PostAuthor-nick">
-              {{ user.FirstName }} {{ user.LastName }}
+              <Nick :UserID="post.UserID" />
             </router-link>
+
             <span class="PostAuthor-timeAdded">2 min. temu</span>
           </div>
         </div>
@@ -111,9 +108,11 @@
         </div>
       </div>
 
-      <img :src="post.Media" :alt="'post ' + post.MediaType">
+      <div class="postContent">
+        <p class="PostText">{{ post.Text }}</p>
 
-      <p class="PostText">{{ post.Text }}</p>
+        <img class="PostMedia" :src="post.Media" :alt="'post ' + post.MediaType">
+      </div>
     </div>
   </div>
 </template>
@@ -122,7 +121,6 @@
   .posts {
     width: 100%;
     height: max-content;
-    padding: 0 30px;
     margin-top: 45px;
     display: flex;
     flex-direction: column;
@@ -161,13 +159,6 @@
   .PostAuthor {
     display: flex;
     align-items: center;
-  }
-
-  .PostAuthor-avatar {
-    display: flex;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
   }
 
   .PostAuthor-text {
@@ -266,8 +257,24 @@
     margin-bottom: 7px;
   }
 
-  /* main section */
+  /* post content */
+  .postContent {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .PostText {
+    width: 100%;
     color: var(--color-contrast);
+    margin: 5px 0 30px 0;
+  }
+
+  .PostMedia {
+    min-width: 50%;
+    max-width: 100%;
+    height: max-content;
   }
 </style>
