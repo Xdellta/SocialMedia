@@ -1,11 +1,22 @@
 <script>
+  import dataMe from '../assets/data/data-me.json'
   import dataUsers from '../assets/data/data-users.json'
 
   export default {
     data() {
       return {
-        usersArray: dataUsers.Users
+        nonFriends: []
       }
+    },
+
+    methods: {
+      getNonFriends() {
+        return dataUsers.Users.filter(user => !dataMe.Me.Friends.includes(user.ID));
+      }
+    },
+
+    created() {
+      this.nonFriends = this.getNonFriends();
     }
   }
 </script>
@@ -15,8 +26,8 @@
     <h1 class="ProposedFriends__title">PROPONOWANI ZNAJOMI</h1>
 
     <div class="ProposedFriends__container">
-      <router-link to="/" v-for="friends in usersArray" :key=friends.ID>
-        <img :src="friends.Avatar" :alt="friends.FirstName+' '+friends.LastName" class="container__item">
+      <router-link to="/" v-for="user in nonFriends" :key="user.ID">
+        <img :src="user.Avatar" :alt="'avatar '+ user.FirstName +' '+ user.LastName" class="container__item">
       </router-link>
       </div>
   </div>
