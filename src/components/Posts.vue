@@ -6,8 +6,10 @@
   import Avatar from './postsComponents/Avatar.vue'
   import Nick from './postsComponents/Nick.vue'
   import PublicationTime from './postsComponents/PublicationTime.vue'
+  import Comments from './postsComponents/Comments.vue'
 
   import IconAddEmoji from './icons/IconAddEmoji.vue'
+  import IconMessage from './icons/IconMessage.vue'
   import EmojiLike from './icons/EmojiLike.vue'
   import EmojiLove from './icons/EmojiLove.vue'
   import EmojiHaha from './icons/EmojiHaha.vue'
@@ -22,7 +24,9 @@
       Avatar,
       Nick,
       PublicationTime,
+      Comments,
       IconAddEmoji,
+      IconMessage,
       EmojiLike,
       EmojiLove,
       EmojiHaha,
@@ -115,6 +119,10 @@
 
         <img class="PostMedia" :src="post.Media" :alt="'post ' + post.MediaType">
       </div>
+
+      <IconMessage class="showComments-btn" />
+
+      <Comments :ID="post.ID" />
     </div>
   </div>
 </template>
@@ -135,6 +143,7 @@
   }
 
   .posts__item {
+    position: relative;
     width: 100%;
     min-height: 140px;
     height: max-content;
@@ -173,6 +182,10 @@
     color: var(--color-contrast);
     text-decoration: none;
     font-size: 19px;
+  }
+
+  .PostAuthor-nick:hover {
+    transform: scale(1.011);
   }
 
   .PostAuthor-timeAdded {
@@ -278,5 +291,19 @@
     min-width: 50%;
     max-width: 100%;
     height: max-content;
+  }
+
+  .showComments-btn {
+    position: absolute;
+    width: 48px;
+    height: max-content;
+    bottom: 19px;
+    right: 23px;
+    fill: var(--color-background2);
+  }
+
+  .showComments-btn:hover {
+    cursor: pointer;
+    transform: scale(1.03);
   }
 </style>

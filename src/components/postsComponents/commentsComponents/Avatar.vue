@@ -1,9 +1,9 @@
 <template>
-  <img :src="usersArray[0].Avatar" alt="avatar" class="PostAuthor-avatar">
+  <img src="" alt="" class="commentAvatar">
 </template>
 
 <script>
-  import dataUsers from '../../assets/data/data-users.json'
+  import dataUsers from '../../../assets/data/data-users.json'
 
   export default {
     props: ['UserID'],
@@ -16,19 +16,16 @@
 
     mounted() {
       this.usersArray = this.usersArray.filter(user => user.ID == this.$props.UserID)
+
+      console.log(this.usersArray)
     }
   }
 </script>
 
 <style type="scss">
-  .PostAuthor-avatar {
-    display: flex;
+  .commentAvatar {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-  }
-
-  .PostAuthor-avatar:hover {
-    transform: scale(1.02);
   }
 </style>

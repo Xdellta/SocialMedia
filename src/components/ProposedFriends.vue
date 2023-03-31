@@ -70,7 +70,7 @@
   .ProposedFriends {
     position: relative;
     width: 100%;
-    margin-top: 25px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -151,7 +151,7 @@
   }
 
   #scrollLeft-btn:hover, #scrollRight-btn:hover {
-    transform: scale(1.02);
+    transform: scale(1.025);
     cursor: pointer;
   }
 </style>

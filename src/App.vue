@@ -34,11 +34,10 @@
   }
 
   main {
-    width: 740px;
+    width: 750px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 17px;
     overflow-y: auto;
   }
 
