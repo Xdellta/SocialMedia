@@ -1,11 +1,14 @@
 <template>
   <div class="comments">
 
-    <div class="comments__item" v-for="comment in commentsArray" :key="comment.Comment">
+    <div class="comments__item" v-for="comment, index in commentsArray" :key="index" :class="{ marginLeft30: index %2 == 1 }">
       <Avatar :UserID="comment.UserID" />
 
       <div class="commentContent">
-        <span class="commentUser">Imię Nazwisko</span>
+        <span class="commentUser">
+          <Nick :UserID="comment.UserID" />
+        </span>
+
         <p class="commentText">{{ comment.Comment }}</p>
       </div>
     </div>
@@ -16,14 +19,11 @@
 <script>
   import dataPosts from '../../assets/data/data-posts.json'
 
-  import Avatar from './commentsComponents/Avatar.vue'
+  import Avatar from './Avatar.vue'
+  import Nick from './Nick.vue'
 
   export default {
     props: ['ID'],
-
-    commponents: {
-      Avatar
-    },
 
     data() {
       return {
@@ -50,6 +50,10 @@
   .comments__item {
     display: flex;
     margin-top: 30px;
+  }
+
+  .marginLeft30 {
+    margin-left: 30px;
   }
 
   .commentContent {

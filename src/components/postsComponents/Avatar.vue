@@ -1,5 +1,7 @@
 <template>
-  <img :src="usersArray[0].Avatar" alt="avatar" class="PostAuthor-avatar">
+  <router-link to="/">
+    <img :src="usersArray[0].Avatar" alt="avatar" class="Author-avatar">
+  </router-link>
 </template>
 
 <script>
@@ -21,14 +23,14 @@
 </script>
 
 <style type="scss">
-  .PostAuthor-avatar {
+  .Author-avatar {
     display: flex;
     width: 45px;
     height: 45px;
     border-radius: 50%;
   }
 
-  .PostAuthor-avatar:hover {
+  .Author-avatar:hover {
     transform: scale(1.02);
   }
 </style>

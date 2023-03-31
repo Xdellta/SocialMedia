@@ -21,8 +21,6 @@
   export default {
     components: {
       NewPost,
-      Avatar,
-      Nick,
       PublicationTime,
       Comments,
       IconAddEmoji,
@@ -71,9 +69,7 @@
     <div class="posts__item" v-for="post in postsArray" :key="post.ID">
       <div class="item__header">
         <div class="PostAuthor">
-          <router-link to="/">
-            <Avatar :UserID="post.UserID" />
-          </router-link>
+          <Avatar :UserID="post.UserID" />
 
           <div class="PostAuthor-text">
             <router-link to="/" class="PostAuthor-nick">
