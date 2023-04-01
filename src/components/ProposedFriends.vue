@@ -118,6 +118,7 @@
   }
 
   .linkBox__front {
+    height: 100%;
     border-radius: 14px;
     transition: transform 1s;
     transform-style: preserve-3d;
