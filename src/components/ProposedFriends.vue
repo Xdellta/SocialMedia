@@ -34,7 +34,7 @@
 
       scrollRight() {
         this.container.scrollBy({
-          left: -510,
+          bottom: -100+'%',
           behavior: 'smooth'
         });
       }
@@ -55,8 +55,13 @@
         <IconArrow class="IconArrow" />
       </button>
 
-      <router-link to="/" v-for="user in nonFriends" :key="user.ID">
-        <img :src="user.Avatar" :alt="'avatar '+ user.FirstName +' '+ user.LastName" class="container__item">
+      <router-link to="/" v-for="user in nonFriends" :key="user.ID" class="linkBox">
+        <div class="linkBox__wrapper">
+          <img :src="user.Avatar" :alt="'avatar '+ user.FirstName +' '+ user.LastName" class="linkBox__front">
+          <div class="linkBox__back">
+            {{ user.FirstName + ' ' + user.LastName }}
+          </div>
+        </div>
       </router-link>
 
       <button id="scrollRight-btn" @click="scrollRight">
@@ -95,17 +100,54 @@
     display: none;
   }
 
-  .container__item {
+  .linkBox {
     height: 100%;
     width: 150px;
-    border-radius: 14px;
-    background-color: var(--color-background2);
     margin-right: 20px;
   }
 
-  .container__item:hover {
+  .linkBox:hover {
     cursor: pointer;
     transform: scale(1.01);
+  }
+
+  .linkBox__wrapper {
+    position: relative;
+    height: 100%;
+    perspective: 1000px;
+  }
+
+  .linkBox__front {
+    border-radius: 14px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  .linkBox__back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(-180deg);
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    border-radius: 14px;
+    background-color: var(--color-background2);
+    color: var(--color-contrast);
+  }
+
+  .linkBox:hover .linkBox__front {
+    transform: rotateY(180deg);
+  }
+
+  .linkBox:hover .linkBox__back {
+    transform: rotateY(0deg);
   }
 
   #scrollLeft-btn {

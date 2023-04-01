@@ -56,7 +56,7 @@
 
   .NewPost-textarea:focus {
     padding: 12px 24px;
-    height: 300px;
+    height: 200px;
     border-radius: 14px;
     line-height: 1.2;
   }
