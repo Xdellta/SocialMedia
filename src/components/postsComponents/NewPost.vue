@@ -1,8 +1,8 @@
 <script setup>
-  import IconBell from './icons/IconBell.vue'
+  import IconBell from './../icons/IconBell.vue'
 
-  import dataMe from '../assets/data/data-me.json'
-  import dataUsers from '../assets/data/data-users.json'
+  import dataMe from '../../assets/data/data-me.json'
+  import dataUsers from '../../assets/data/data-users.json'
 
   const user = dataUsers.Users.find((user) => user.ID === dataMe.Me.ID);
 </script>
@@ -37,7 +37,7 @@
   
   .NewPost-textarea {
     height: 45px;
-    width: 646px;
+    width: 91%;
     padding: 0 24px;
     line-height: 45px;
     border: none;

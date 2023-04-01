@@ -2,9 +2,7 @@
   import dataPosts from '../assets/data/data-posts.json'
   import dataUsers from '../assets/data/data-users.json'
 
-  import NewPost from './NewPost.vue'
-  import Avatar from './postsComponents/Avatar.vue'
-  import Nick from './postsComponents/Nick.vue'
+  import NewPost from './postsComponents/NewPost.vue'
   import PublicationTime from './postsComponents/PublicationTime.vue'
   import Comments from './postsComponents/Comments.vue'
 
@@ -55,6 +53,11 @@
           this.reactionsClicked[postId][reactionName] = true
           this.postsArray.find(post => post.ID === postId).Reactions.find(r => r.ReactionName === reactionName).ReactionValue++
         }
+      },
+
+      showComments(postId) {
+        const post = this.postsArray.find(post => post.ID === postId)
+        post.showComments = !post.showComments
       }
     }
   }
@@ -116,9 +119,11 @@
         <img class="PostMedia" :src="post.Media" :alt="'post ' + post.MediaType">
       </div>
 
-      <IconMessage class="showComments-btn" />
+      <button class="showComments-btn" @click="showComments(post.ID)">
+        <IconMessage class="IconMessage" /> KOMENTARZE
+      </button>
 
-      <Comments :ID="post.ID" />
+      <Comments v-if="post.showComments" :ID="post.ID" />
     </div>
   </div>
 </template>
@@ -290,16 +295,25 @@
   }
 
   .showComments-btn {
-    position: absolute;
-    width: 48px;
-    height: max-content;
-    bottom: 19px;
-    right: 23px;
-    fill: var(--color-background2);
+    display: flex;
+    align-content: center;
+    color: var(--color-contrast);
+    margin: 15px 0 0 79%;
+    border: none;
+    outline: none;
+    background-color: #00000000;
+    font-size: 17px;
+    z-index: 1;
+  }
+
+  .showComments-btn > .IconMessage {
+    margin-right: 5px;
+    fill: var(--color-contrast);
   }
 
   .showComments-btn:hover {
     cursor: pointer;
-    transform: scale(1.03);
+    transform: scale(1.02);
+    color: var(--color-lightBlue);
   }
 </style>
