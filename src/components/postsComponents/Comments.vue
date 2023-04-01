@@ -23,8 +23,9 @@
 
   <div class="InputComment">
     <img :src="mePersonalData.Avatar" :alt="mePersonalData.FirstName + ' ' + mePersonalData.LastName" class="InputComment__avatar" />
-    <input type="text" placeholder="Dodaj nowy komentarz" class="InputComment__input">
-    <IconSend class="InputComment__btn" />
+    <input type="text" placeholder="Dodaj nowy komentarz" class="InputComment__input" v-model="newComment" ref="commentInput">
+
+    <IconSend class="InputComment__btn" @click="addComment" />
   </div>
 </template>
 
@@ -48,7 +49,21 @@
     data() {
       return {
         commentsArray: dataPosts.Posts[this.$props.ID - 1].Comments,
-        mePersonalData: dataUsers.Users.find(user => user.ID == dataMe.Me.ID)
+        mePersonalData: dataUsers.Users.find(user => user.ID == dataMe.Me.ID),
+        newComment: ''
+      }
+    },
+
+    methods: {
+      addComment() {
+        const newCommentObj = {
+          UserID: this.mePersonalData.ID,
+          Comment: this.newComment,
+          PublicationTime: new Date().toISOString()
+        }
+        this.commentsArray.push(newCommentObj)
+        this.newComment = ''
+        this.$refs.commentInput.focus()
       }
     }
   }
