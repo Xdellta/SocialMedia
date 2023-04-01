@@ -74,7 +74,7 @@
 <style type="scss">
   .ProposedFriends {
     position: relative;
-    width: 100%;
+    width: 750px;
     margin-top: 40px;
     display: flex;
     flex-direction: column;

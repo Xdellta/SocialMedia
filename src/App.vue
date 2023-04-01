@@ -25,7 +25,6 @@
   aside {
     height: 100%;
     min-width: 350px;
-    max-width: 350px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -34,9 +33,10 @@
   }
 
   main {
-    width: 750px;
+    width: 100%;
     height: 100%;
     display: flex;
+    align-items: center;
     flex-direction: column;
     overflow-y: auto;
   }
@@ -46,7 +46,7 @@
   }
 
   nav {
-    width: 77px;
+    min-width: 77px;
     height: 100%;
     display: flex;
   }

@@ -132,7 +132,7 @@
 
 <style type="scss">
   .posts {
-    width: 100%;
+    width: 750px;
     height: max-content;
     margin-top: 45px;
     display: flex;
