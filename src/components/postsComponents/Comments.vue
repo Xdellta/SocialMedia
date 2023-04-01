@@ -5,9 +5,15 @@
       <Avatar :UserID="comment.UserID" />
 
       <div class="commentContent">
-        <router-link to="/" class="commentUser">
-          <Nick :UserID="comment.UserID" />
-        </router-link>
+        <div class="commentContent__header">
+          <router-link to="/" class="commentUser">
+            <Nick :UserID="comment.UserID" />
+          </router-link>
+
+          <span class="timeAddedComment">
+            <PublicationTime :PublicationTime="comment.PublicationTime" />
+          </span>
+        </div>
 
         <p class="commentText">{{ comment.Comment }}</p>
       </div>
@@ -27,13 +33,16 @@
   import dataMe from '../../assets/data/data-me.json'
   import dataUsers from '../../assets/data/data-users.json'
 
+  import PublicationTime from './PublicationTime.vue'
+
   import IconSend from '../icons/IconSend.vue'
 
   export default {
     props: ['ID'],
 
     components: {
-      IconSend
+      IconSend,
+      PublicationTime
     },
 
     data() {
@@ -79,10 +88,23 @@
     border-radius: 14px;
   }
 
+  .commentContent__header {
+    display: flex;
+    align-content: center;
+  }
+
   .commentUser {
     color: var(--color-lightBlue);
     font-size: 15px;
     text-decoration: none;
+  }
+
+  .timeAddedComment {
+    color: var(--color-darkGray);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-left: 14px;
   }
 
   .commentText {

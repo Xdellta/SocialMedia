@@ -1,36 +1,28 @@
 <template>
-  <span class="PostAuthor-timeAdded" v-if="postPublicationTime != null">
-    {{ postPublicationTime[0].PublicationTime }}
-  </span>
+  {{ time }}
 </template>
-  
+
 <script>
-  import dataPosts from '../../assets/data/data-posts.json'
-  
   export default {
-    props: ['UserID'],
+    props: ['PublicationTime'],
   
     data() {
       return {
-        postsArray: dataPosts.Posts,
-        postPublicationTime: null
+        time: null
       }
     },
-  
+
     mounted() {
-      this.postPublicationTime = this.postsArray.filter(post => post.UserID == this.$props.UserID)
-
-      const PublicationTime = new Date(this.postPublicationTime[0].PublicationTime)
       const now = new Date()
-      const timeDiff = Math.round((now - PublicationTime) / (1000 * 60)) // time difference in minutes
+      const timeDiff = Math.round((now - new Date(this.PublicationTime)) / (1000 * 60)) // time difference in minutes
 
-      if (timeDiff < 1) this.postPublicationTime[0].PublicationTime = 'Teraz'
-      if (timeDiff < 60 && timeDiff >= 1) this.postPublicationTime[0].PublicationTime = timeDiff + ' min.'
-      if (timeDiff >= 60) this.postPublicationTime[0].PublicationTime = Math.round(timeDiff / 60) + ' godz.'
-      if (timeDiff / 60 >= 24) this.postPublicationTime[0].PublicationTime = Math.round(timeDiff / 60 / 24) + ' dni'
-      if (Math.round(timeDiff / 60 / 24) == 1) this.postPublicationTime[0].PublicationTime = '1 dzień'
-      if (timeDiff / 60 / 24 >= 365) this.postPublicationTime[0].PublicationTime = Math.round(timeDiff / 60 / 24 / 365) + ' lata'
-      if (Math.round(timeDiff / 60 / 24 / 365) == 1) this.postPublicationTime[0].PublicationTime = '1 rok'
+      if (timeDiff < 1) this.time = 'Teraz'
+      if (timeDiff < 60 && timeDiff >= 1) this.time = timeDiff + ' min.'
+      if (timeDiff >= 60) this.time = Math.round(timeDiff / 60) + ' godz.'
+      if (timeDiff / 60 >= 24) this.time = Math.round(timeDiff / 60 / 24) + ' dni'
+      if (Math.round(timeDiff / 60 / 24) == 1) this.time = '1 dzień'
+      if (timeDiff / 60 / 24 >= 365) this.time = Math.round(timeDiff / 60 / 24 / 365) + ' lata'
+      if (Math.round(timeDiff / 60 / 24 / 365) == 1) this.time = '1 rok'
     }
   }
 </script>

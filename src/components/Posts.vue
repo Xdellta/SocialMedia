@@ -79,7 +79,9 @@
               <Nick :UserID="post.UserID" />
             </router-link>
 
-            <PublicationTime :UserID="post.UserID" />
+            <span class="PostAuthor-timeAdded">
+              <PublicationTime :PublicationTime="post.PublicationTime" />
+            </span>
           </div>
         </div>
 
