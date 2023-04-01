@@ -49,9 +49,10 @@
   .comments {
     width: 100%;
     max-height: 450px;
-    margin-top: -20px;
+    margin-top: 20px;
     padding: 0 15px;
     display: flex;
+    gap: 33px;
     flex-direction: column;
     overflow-y: auto;
   }
@@ -62,7 +63,6 @@
 
   .comments__item {
     display: flex;
-    margin-top: 30px;
   }
 
   .marginLeft30 {
@@ -96,7 +96,7 @@
     position: relative;
     width: 100%;
     padding: 0 15px;
-    margin-top: 30px;
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
