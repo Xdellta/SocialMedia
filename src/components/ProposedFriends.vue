@@ -131,6 +131,7 @@
     left: 0;
     height: 100%;
     width: 100%;
+    padding: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -139,6 +140,7 @@
     transform-style: preserve-3d;
     backface-visibility: hidden;
     border-radius: 14px;
+    text-align: center;
     background-color: var(--color-background2);
     color: var(--color-contrast);
   }
