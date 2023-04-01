@@ -34,7 +34,7 @@
 
       scrollRight() {
         this.container.scrollBy({
-          bottom: -100+'%',
+          left: -510,
           behavior: 'smooth'
         });
       }
