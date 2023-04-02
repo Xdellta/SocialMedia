@@ -124,7 +124,7 @@
       <div class="postContent">
         <p class="PostText">{{ post.Text }}</p>
 
-        <img class="PostMedia" :src="post.Media" :alt="'post ' + post.MediaType">
+        <img :src="post.Media" alt="zdjęcie do postu" v-if="post.Media" class="PostMedia">
       </div>
 
       <button class="showComments-btn" @click="showComments(post.ID)">
@@ -294,13 +294,14 @@
   .PostText {
     width: 100%;
     color: var(--color-contrast);
-    margin: 5px 0 30px 0;
+    margin: 5px 0 10px 0;
   }
 
   .PostMedia {
     min-width: 50%;
     max-width: 100%;
     height: max-content;
+    margin-top: 20px;
   }
 
   .showComments-btn {

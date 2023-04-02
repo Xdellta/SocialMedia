@@ -4,6 +4,7 @@
 
     <textarea placeholder="Dodaj swój nowy post" spellcheck="false" class="NewPost-textarea" v-model="newPost" ref="postTextarea"></textarea>
 
+    <SaveMedia />
     <IconSend class="NewPost-btn" @click="addPost" />
   </div>
 </template>
@@ -13,10 +14,13 @@
   import dataUsers from '../../assets/data/data-users.json'
   import dataPosts from '../../assets/data/data-posts.json'
 
+  import SaveMedia from './SaveMedia.vue'
+
   import IconSend from '../icons/IconSend.vue'
 
   export default {
     components: {
+      SaveMedia,
       IconSend
     },
 
@@ -69,6 +73,18 @@
             Comments: []
           }
 
+          const selectedMedia = sessionStorage.getItem('selectedMedia')
+
+          if (selectedMedia) {
+            fetch(selectedMedia).then(response => {
+              if (response.ok) {
+                newPostObj.Media = selectedMedia;
+              }
+            })
+          }
+
+          console.log(newPostObj)
+
           this.postsArray.push(newPostObj)
           this.newPost = ''
         }
@@ -101,8 +117,7 @@
   .NewPost-textarea {
     height: 45px;
     width: 91%;
-    padding: 0 55px 0 24px;
-    line-height: 45px;
+    padding: 12px 100px 0 24px;
     border: none;
     outline: none;
     resize: none;
@@ -117,19 +132,12 @@
     display: none;
   }
 
-  .NewPost-textarea:focus {
-    padding: 12px 55px 0 24px;
-    height: 200px;
-    border-radius: 14px;
-    line-height: 1.4;
-  }
-
   .NewPost-btn {
     position: absolute;
     width: 30px;
     height: max-content;
     bottom: 21.5px;
-    right: 30px;
+    right: 39px;
     fill: var(--color-contrast);
   }
 
