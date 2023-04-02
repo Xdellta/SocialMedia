@@ -35,6 +35,7 @@
     methods: {
       addPost() {
         if (this.newPost.length > 0) {
+
           const newPostObj = {
             ID: Math.max(...this.postsArray.map(post => post.ID))+1,
             UserID: this.mePersonalData.ID,
@@ -73,17 +74,12 @@
             Comments: []
           }
 
-          const selectedMedia = sessionStorage.getItem('selectedMedia')
-
-          if (selectedMedia) {
-            fetch(selectedMedia).then(response => {
-              if (response.ok) {
-                newPostObj.Media = selectedMedia;
-              }
-            })
+          if (sessionStorage.hasOwnProperty('selectedMedia')) {
+            newPostObj.Media = sessionStorage.getItem('selectedMedia');
+            sessionStorage.removeItem('selectedMedia');
+          } else {
+            newPostObj.Media = ''
           }
-
-          console.log(newPostObj)
 
           this.postsArray.push(newPostObj)
           this.newPost = ''

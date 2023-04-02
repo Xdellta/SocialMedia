@@ -47,6 +47,10 @@
     },
 
     methods: {
+      isBlob(link) {
+        return /^blob:/.test(link);
+      },
+
       toggleReaction(postId, reactionName) {
         if (!this.reactionsClicked[postId]) {
           this.reactionsClicked[postId] = {}
@@ -124,7 +128,7 @@
       <div class="postContent">
         <p class="PostText">{{ post.Text }}</p>
 
-        <img :src="post.Media" alt="zdjęcie do postu" v-if="post.Media" class="PostMedia">
+        <img :src="post.Media" alt="zdjęcie do postu" v-if="post.Media != ''" class="PostMedia">
       </div>
 
       <button class="showComments-btn" @click="showComments(post.ID)">
