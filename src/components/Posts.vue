@@ -6,7 +6,7 @@
   import PublicationTime from './postsComponents/PublicationTime.vue'
   import Comments from './postsComponents/Comments.vue'
 
-  import IconAddEmoji from './icons/IconAddEmoji.vue'
+  import IconAddReaction from './icons/IconAddReaction.vue'
   import IconMessage from './icons/IconMessage.vue'
   import EmojiLike from './icons/EmojiLike.vue'
   import EmojiLove from './icons/EmojiLove.vue'
@@ -21,7 +21,7 @@
       NewPost,
       PublicationTime,
       Comments,
-      IconAddEmoji,
+      IconAddReaction,
       IconMessage,
       EmojiLike,
       EmojiLove,
@@ -110,7 +110,7 @@
           </div>
 
           <div class="addEmoji">
-            <IconAddEmoji class="IconAddEmoji"/>
+            <IconAddReaction class="IconAddReaction"/>
 
             <div class="addEmoji-table">
               <EmojiLike class="emoji" @click="toggleReaction(post.ID, 'Like')" />
@@ -254,24 +254,24 @@
     display: flex;
   }
 
-  .IconAddEmoji {
+  .IconAddReaction {
     position: relative;
-    width: 34px;
+    width: 26px;
     height: max-content;
-    fill: #FFDA6A;
+    fill: var(--color-contrast);
     margin-left: 22px;
     z-index: 1;
   }
 
-  .IconAddEmoji:hover {
+  .IconAddReaction:hover {
     cursor: pointer;
   }
 
   .addEmoji-table {
     position: absolute;
-    top: -3px;
-    right: -3px;
-    padding: 6px;
+    top: -2px;
+    right: -7px;
+    padding: 2px 6px;
     display: none;
     flex-direction: column;
     background-color: var(--color-background2);
