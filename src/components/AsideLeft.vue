@@ -75,7 +75,7 @@
 <template>
   <div class="SearchBox">
     <div class="box-IconSearch"><IconSearch class="IconSearch" /></div>
-    <input type="text" placeholder="Wyszukaj" class="SearchInput" v-on:input="filterData">
+    <input type="text" placeholder="Wyszukaj" spellcheck="false" class="SearchInput" v-on:input="filterData">
   </div>
 
   <div class="scrollContainer">

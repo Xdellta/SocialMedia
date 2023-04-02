@@ -1,22 +1,85 @@
-<script setup>
-  import IconBell from './../icons/IconBell.vue'
-
-  import dataMe from '../../assets/data/data-me.json'
-  import dataUsers from '../../assets/data/data-users.json'
-
-  const user = dataUsers.Users.find((user) => user.ID === dataMe.Me.ID);
-</script>
-
 <template>
   <div class="NewPost">
-    <img class="NewPost-avatar" :src="user.Avatar" :alt="user.FirstName + ' ' + user.LastName" />
+    <img class="NewPost-avatar" :src="mePersonalData.Avatar" :alt="'Avatar ' + mePersonalData.FirstName + ' ' + mePersonalData.LastName" />
 
-    <textarea placeholder="Dodaj swój nowy post" spellcheck="false" class="NewPost-textarea"></textarea>
+    <textarea placeholder="Dodaj swój nowy post" spellcheck="false" class="NewPost-textarea" v-model="newPost" ref="postTextarea"></textarea>
+
+    <IconSend class="NewPost-btn" @click="addPost" />
   </div>
 </template>
 
+<script>
+  import dataMe from '../../assets/data/data-me.json'
+  import dataUsers from '../../assets/data/data-users.json'
+  import dataPosts from '../../assets/data/data-posts.json'
+
+  import IconSend from '../icons/IconSend.vue'
+
+  export default {
+    components: {
+      IconSend
+    },
+
+    data() {
+      return {
+        postsArray: dataPosts.Posts,
+        mePersonalData: dataUsers.Users.find(user => user.ID === dataMe.Me.ID),
+        newPost: ''
+      }
+    },
+
+    methods: {
+      addPost() {
+        if (this.newPost.length > 0) {
+          const newPostObj = {
+            ID: Math.max(...this.postsArray.map(post => post.ID))+1,
+            UserID: this.mePersonalData.ID,
+            Text: this.newPost,
+            PublicationTime: new Date().toISOString(),
+            Reactions: [
+              {
+                "ReactionName": "Like",
+                "ReactionValue": 0
+              },
+              {
+                "ReactionName": "Love",
+                "ReactionValue": 0
+              },
+              {
+                "ReactionName": "Haha",
+                "ReactionValue": 0
+              },
+              {
+                "ReactionName": "Angry",
+                "ReactionValue": 0
+              },
+              {
+                "ReactionName": "Sad",
+                "ReactionValue": 0
+              },
+              {
+                "ReactionName": "Wow",
+                "ReactionValue": 0
+              },
+              {
+                "ReactionName": "Ya",
+                "ReactionValue": 0
+              }
+            ],
+            Comments: []
+          }
+
+          this.postsArray.push(newPostObj)
+          this.newPost = ''
+        }
+      }
+    }
+  }
+</script>
+
 <style type="scss">
   .NewPost {
+    position: relative;
     width: 100%;
     height: max-content;
     margin-top: 35px;
@@ -38,7 +101,7 @@
   .NewPost-textarea {
     height: 45px;
     width: 91%;
-    padding: 0 24px;
+    padding: 0 55px 0 24px;
     line-height: 45px;
     border: none;
     outline: none;
@@ -55,9 +118,24 @@
   }
 
   .NewPost-textarea:focus {
-    padding: 12px 24px;
+    padding: 12px 55px 0 24px;
     height: 200px;
     border-radius: 14px;
-    line-height: 1.2;
+    line-height: 1.4;
+  }
+
+  .NewPost-btn {
+    position: absolute;
+    width: 30px;
+    height: max-content;
+    bottom: 21.5px;
+    right: 30px;
+    fill: var(--color-contrast);
+  }
+
+  .NewPost-btn:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+    fill: var(--color-lightBlue);
   }
 </style>

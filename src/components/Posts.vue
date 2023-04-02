@@ -40,6 +40,12 @@
       }
     },
 
+    computed: {
+      sortedPosts() {
+        return this.postsArray.sort((a, b) => b.ID - a.ID)
+      }
+    },
+
     methods: {
       toggleReaction(postId, reactionName) {
         if (!this.reactionsClicked[postId]) {
@@ -69,7 +75,7 @@
 
     <NewPost />
 
-    <div class="posts__item" v-for="post in postsArray" :key="post.ID">
+    <div class="posts__item" v-for="post in sortedPosts" :key="post.ID">
       <div class="item__header">
         <div class="PostAuthor">
           <Avatar :UserID="post.UserID" />
@@ -261,12 +267,13 @@
     position: absolute;
     top: -3px;
     right: -3px;
-    padding: 38px 6px 6px 6px;
+    padding: 6px;
     display: none;
     flex-direction: column;
     background-color: var(--color-background2);
     box-shadow: 0 0 16px 3px var(--color-background1);
     border-radius: 12px;
+    z-index: 2;
   }
 
   .addEmoji-table > .emoji {

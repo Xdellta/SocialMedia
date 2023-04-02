@@ -23,7 +23,7 @@
 
   <div class="InputComment">
     <img :src="mePersonalData.Avatar" :alt="mePersonalData.FirstName + ' ' + mePersonalData.LastName" class="InputComment__avatar" />
-    <input type="text" placeholder="Dodaj nowy komentarz" class="InputComment__input" v-model="newComment" ref="commentInput">
+    <input type="text" placeholder="Dodaj nowy komentarz" spellcheck="false" class="InputComment__input" v-model="newComment" ref="commentInput">
 
     <IconSend class="InputComment__btn" @click="addComment" />
   </div>
@@ -56,14 +56,18 @@
 
     methods: {
       addComment() {
-        const newCommentObj = {
-          UserID: this.mePersonalData.ID,
-          Comment: this.newComment,
-          PublicationTime: new Date().toISOString()
+        if (this.newComment.length > 0) {
+          
+          const newCommentObj = {
+            UserID: this.mePersonalData.ID,
+            Comment: this.newComment,
+            PublicationTime: new Date().toISOString()
+          }
+
+          this.commentsArray.push(newCommentObj)
+          this.newComment = ''
+          this.$refs.commentInput.focus()
         }
-        this.commentsArray.push(newCommentObj)
-        this.newComment = ''
-        this.$refs.commentInput.focus()
       }
     }
   }
