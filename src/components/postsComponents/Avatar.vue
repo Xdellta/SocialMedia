@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/">
+  <router-link :to="`/Profil/${usersArray[0].ID}`">
     <img :src="usersArray[0].Avatar" alt="avatar" class="Author-avatar">
   </router-link>
 </template>

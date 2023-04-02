@@ -55,7 +55,7 @@
         <IconArrow class="IconArrow" />
       </button>
 
-      <router-link to="/" v-for="user in nonFriends" :key="user.ID" class="linkBox">
+      <router-link :to="`/Profil/${user.ID}`" v-for="user in nonFriends" :key="user.ID" class="linkBox">
         <div class="linkBox__wrapper">
           <img :src="user.Avatar" :alt="'avatar '+ user.FirstName +' '+ user.LastName" class="linkBox__front">
           <div class="linkBox__back">

@@ -96,7 +96,7 @@
     <div id="friends">
       <h1 class="title">ZNAJOMI:</h1>
 
-      <div class="friends__item" v-for="friend in myFriends.slice(0, showMoreFriends ? myFriends.length : 6)" :key="friend.ID">
+      <router-link :to="`/Profil/${friend.ID}`" class="friends__item" v-for="friend in myFriends.slice(0, showMoreFriends ? myFriends.length : 6)" :key="friend.ID">
         <div class="item__personalData">
           <img :src="friend.Avatar" :alt="friend.FirstName + ' ' + friend.FirstName" class="item-img" loading="lazy">
           {{ friend.FirstName }} {{ friend.LastName }}
@@ -105,7 +105,7 @@
         <div class="item__status" :class="{ 'status-active': friend.Status === 'active', 'status-inactive': friend.Status === 'inactive' }">
           {{ friend.lastActive }}
         </div>
-      </div>
+      </router-link>
 
       <button class="collapse-expand" v-show="myFriends.length > 6" @click="toggleShowMoreFriends">
         {{ showMoreFriends ? 'POKAŻ MNIEJ' : 'POKAŻ WIĘCEJ' }}
@@ -217,6 +217,7 @@
     justify-content: space-between;
     margin: 9px 0;
     color: var(--color-contrast);
+    text-decoration: none;
   }
 
   .groups__item:hover, .friends__item:hover {

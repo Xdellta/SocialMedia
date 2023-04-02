@@ -85,7 +85,7 @@
           <Avatar :UserID="post.UserID" />
 
           <div class="PostAuthor-text">
-            <router-link to="/" class="PostAuthor-nick">
+            <router-link :to="`/Profil/${post.UserID}`" class="PostAuthor-nick">
               <Nick :UserID="post.UserID" />
             </router-link>
 

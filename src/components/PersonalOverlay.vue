@@ -14,14 +14,14 @@
     </router-link>
 
     <div class="nick-logout">
-      <router-link to="/" class="nick">
+      <router-link :to="`/Profil/${user.ID}`" class="nick">
         {{ user.FirstName }} {{ user.LastName }}
       </router-link>
 
       <span class="logout">WYLOGUJ SIĘ</span>
     </div>
 
-    <router-link to="/" class="avatar" >
+    <router-link :to="`/Profil/${user.ID}`" class="avatar" >
       <img :src="user.Avatar" :alt="user.FirstName + ' ' + user.LastName" />
     </router-link>
   </div>

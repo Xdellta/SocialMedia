@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Social from '../views/Social.vue'
 import Videos from '../views/Videos.vue'
 import Settings from '../views/Settings.vue'
+import UserProfil from '../views/UserProfil.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/Ustawienia',
       name: 'settings',
       component: Settings
+    },
+    {
+      path: '/Profil/:ID',
+      name: 'userProfil',
+      component: UserProfil
     }
   ]
 })

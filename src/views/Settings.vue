@@ -1,16 +1,24 @@
 <template>
-  <h1 class="title">JAKIŚ TYTUŁ</h1>
+  <div class="settings">
+    <h1 class="title">JAKIŚ TYTUŁ</h1>
 
-  <div class="item">
-    <span class="item__title">NAZWA JAKIEGOŚ USTAWIENIA</span>
-  </div>
+    <div class="item">
+      <span class="item__title">NAZWA JAKIEGOŚ USTAWIENIA</span>
+    </div>
 
-  <div class="item">
-    <span class="item__title">NAZWA JAKIEGOŚ USTAWIENIA</span>
+    <div class="item">
+      <span class="item__title">NAZWA JAKIEGOŚ USTAWIENIA</span>
+    </div>
   </div>
 </template>
 
 <style type="scss">
+  .settings {
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+  }
+
   .title {
     color: var(--color-contrast);
     font-size: 22px;
